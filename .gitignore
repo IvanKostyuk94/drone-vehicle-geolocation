@@ -1,0 +1,10 @@
+data/*
+!data/README.md
+runs/
+__pycache__/
+*.egg-info/
+.ipynb_checkpoints/
+.DS_Store
+*.pt
+*.onnx
+notebooks/

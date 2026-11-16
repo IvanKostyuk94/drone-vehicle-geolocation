@@ -1,0 +1,41 @@
+paths:
+  images: data/songdo_vision/test/images
+  coco_annotations: data/songdo_vision/test/coco_annotations.json
+  master_frames: data/songdo_traffic/master_frames
+  orthophotos: data/songdo_traffic/orthophotos
+  segmentations: data/songdo_traffic/segmentations
+  matches_csv: data/matches.csv
+  splits: data/splits.json
+  runs: runs
+
+
+tiling:
+  size: 800
+  overlap: 250
+  min_visible: 0.3
+
+training:
+  epochs: 3
+  batch_size: 2
+  learning_rate: 0.0025
+  momentum: 0.9
+  decay: 0.0001
+  warmup: 1000
+  grad_clip_norm: 10.0
+  eval_every: 1000
+  max_train_tiles: null
+  resume: null
+
+evaluation:
+  run: 20261112-211735
+  score_threshold: 0.8
+  iou_threshold: 0.5
+  split: test
+
+inference:
+  nms_iou_threshold: 0.5
+
+georef:
+  cutout_original_size: 15000  # cut-out size before downscaling, https://zenodo.org/records/17924857
+  min_inliers: 20  # minimum RANSAC inliers of the frame -> master homography
+  scale_range: [0.8, 1.25]  # allowed Jacobian determinant of that homography at the frame centre
